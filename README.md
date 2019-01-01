@@ -25,3 +25,5 @@ $ mv action-sync-glitch-github /path/to/your-repository/
 
 - `GLITCH_PROJECT_ID` _(the Glitch project id.)_
 - `GLITCH_TOKEN` _(the Glitch authorization)_
+
+![action](https://raw.githubusercontent.com/glitch-tools/sync-glitch-github-action/master/public/assets/github-action.png)
