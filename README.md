@@ -1,6 +1,6 @@
 # GitHub Action for Glitch
 
-This Action for [Glitch](https://glitch.com/) enables arbitrary actions for interacting with Azure services via [the `sync-glitch` command line client.](https://github.com/glitch-tools/sync-glitch-cli)
+Wraps the [sync-glitch CLI](https://github.com/glitch-tools/sync-glitch-cli) to enable execute the command.
 
 ## Usage
 
