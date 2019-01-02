@@ -1,29 +1,26 @@
-# sync-glitch-github-action
+# GitHub Action for Glitch
 
-## Install
-
-```
-$ git clone git@github.com:glitch-tools/sync-glitch-github-action.git
-$ cd sync-glitch-github-action
-$ mv action-sync-glitch-github /path/to/your-repository/
-```
+This Action for [Glitch](https://glitch.com/) enables arbitrary actions for interacting with Azure services via [the `sync-glitch` command line client.](https://github.com/glitch-tools/sync-glitch-cli)
 
 ## Usage
 
-### Get required environment variables
+```hcl
+# .github/main.workflow
 
-1. Open your project on Glitch
-1. Open devtool and click the Network tab
-1. Select Project name > Advanced Options > Import from GitHub
-1. You can find a request URL which starts from `https://api.glitch.com/projects/githubImport ~`:
+workflow "Sync changes in your GitHub repository to glitch.com" {
+  on = "push"
+  resolves = ["Deploy"]
+}
 
-   ![network](https://raw.githubusercontent.com/glitch-tools/sync-glitch-cli/master/public/assets/capture.png)
+action "Deploy" {
+  uses = "glitch-tools/sync-glitch-github-action@master"
+  secrets = ["GLITCH_PROJECT_ID", "GLITCH_TOKEN"]
+}
+```
 
-1. It has three params. These params are what you need.
+### Secrets
 
-### Create secrets variables on GitHub Action Editor
+- `GLITCH_PROJECT_ID` - **Required** The `projectId` of yours.
+- `GLITCH_TOKEN` – **Required** The `authorization` of yours.
 
-- `GLITCH_PROJECT_ID` _(the Glitch project id.)_
-- `GLITCH_TOKEN` _(the Glitch authorization)_
-
-![action](https://raw.githubusercontent.com/glitch-tools/sync-glitch-github-action/master/public/assets/github-action.png)
+For more details on [glitch-tools/sync-glitch-cli#how-to-get-required-environment-variables](https://github.com/glitch-tools/sync-glitch-cli#how-to-get-required-environment-variables)
