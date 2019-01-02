@@ -6,12 +6,12 @@ Wraps the [sync-glitch CLI](https://github.com/glitch-tools/sync-glitch-cli) to 
 
 ```hcl
 # .github/main.workflow
-workflow "Sync Glitch Workflow" {
+workflow "New workflow" {
   on = "push"
-  resolves = ["Sync changes"]
+  resolves = ["glitch-tools/sync-glitch-github-action@master"]
 }
 
-action "Sync changes" {
+action "glitch-tools/sync-glitch-github-action@master" {
   uses = "glitch-tools/sync-glitch-github-action@master"
   secrets = ["GLITCH_PROJECT_ID", "GLITCH_TOKEN"]
 }
